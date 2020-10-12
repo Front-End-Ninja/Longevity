@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Image, View,Text, ImageBackground} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import Header from './components/home/Header';
 import Footer from "./components/home/Footer";
 import Meditation from "./components/features/Meditation";
@@ -8,6 +7,8 @@ import Ketogenic from "./components/features/Ketogenic";
 import BMI from "./components/features/BMI";
 import Cold from "./components/features/ColdExposition";
 import AppIntroSlider from "react-native-app-intro-slider";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 const slides = [
     {
@@ -79,7 +80,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        showApp: false
+        App: false
     }}
     _renderItem = ({ item }) => {
         return (
@@ -91,12 +92,12 @@ export default class App extends React.Component {
         );
     }
     _onDone = () => {
-        this.setState({ showApp: true });
+        this.setState({ App: true });
     }
     _renderNextButton = () => {
         return (
             <View style={styles.buttonCircle}>
-                <Icon
+                <Ionicons
                     name="md-arrow-round-forward"
                     color="rgba(255, 255, 255, .9)"
                     size={24}
@@ -107,7 +108,7 @@ export default class App extends React.Component {
     _renderDoneButton = () => {
         return (
             <View style={styles.buttonCircle}>
-                <Icon
+                <Ionicons
                     name="md-checkmark"
                     color="rgba(255, 255, 255, .9)"
                     size={24}
@@ -116,7 +117,7 @@ export default class App extends React.Component {
         );
     };
     render() {
-        if (this.state.showApp) {
+        if (this.state.App) {
             return (
                 <View style={styles.container}>
                     <ImageBackground style= { styles.backgroundImage } source={require('./assets/bg4.jpg')}>
