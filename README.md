@@ -34,10 +34,12 @@ Enjoy!
 
 Here You can view Longevity screen's
 
-![Screenshot_1603005043](https://user-images.githubusercontent.com/43832905/96361035-7d14af80-1122-11eb-868f-6ead727c01ed.png)
-![Screenshot_1603005048](https://user-images.githubusercontent.com/43832905/96361034-7be38280-1122-11eb-9cd1-ff22824c0337.png)
-![Screenshot_1603005052](https://user-images.githubusercontent.com/43832905/96361033-7b4aec00-1122-11eb-9c95-0b83d75a63d9.png)
-![Screenshot_1603005063](https://user-images.githubusercontent.com/43832905/96361030-79812880-1122-11eb-9b0f-24f9aeab7e09.png)
-![Screenshot_1603005068](https://user-images.githubusercontent.com/43832905/96361029-77b76500-1122-11eb-8ee9-09dba95ece64.png)
-![Screenshot_1603005073](https://user-images.githubusercontent.com/43832905/96361028-75550b00-1122-11eb-8bb7-7a0e8b02e98c.png)
-![Screenshot_1603005077](https://user-images.githubusercontent.com/43832905/96361024-71c18400-1122-11eb-9918-332bb93b08f1.png)
+<img align="left" alt="First-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361035-7d14af80-1122-11eb-868f-6ead727c01ed.png" />
+<img align="left" alt="Second-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361034-7be38280-1122-11eb-9cd1-ff22824c0337.png" />
+<img align="left" alt="3rd-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361033-7b4aec00-1122-11eb-9c95-0b83d75a63d9.png" />
+<img align="left" alt="fourth-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361030-79812880-1122-11eb-9b0f-24f9aeab7e09.png" />
+<img align="left" alt="5th-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361029-77b76500-1122-11eb-8ee9-09dba95ece64.png" />
+<img align="left" alt="6th-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361028-75550b00-1122-11eb-8bb7-7a0e8b02e98c.png" />
+<img align="left" alt="7th-screen" width="200px" src="https://user-images.githubusercontent.com/43832905/96361024-71c18400-1122-11eb-9918-332bb93b08f1.png" />
+
+
