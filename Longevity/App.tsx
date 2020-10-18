@@ -1,88 +1,29 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, Image, View,Text, ImageBackground} from 'react-native';
-import Header from './components/home/Header';
-import Footer from "./components/home/Footer";
-import Meditation from "./components/features/Meditation";
-import Ketogenic from "./components/features/Ketogenic";
-import BMI from "./components/features/BMI";
-import Cold from "./components/features/ColdExposition";
+import { Image, View, Text} from 'react-native';
 import AppIntroSlider from "react-native-app-intro-slider";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
+import slides from "./components/onboardData/SliderData";
+import styles from "./components/styles/AppStyles";
+import HomeScreen from "./screens/HomeScreen";
+import BmiScreen from "./screens/BmiScreen";
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {NavigationContainer} from "@react-navigation/native";
 
+const Tab = createBottomTabNavigator();
 
-const slides = [
-    {
-        key: 1,
-        title: 'Fight for Yourself',
-        text: 'Cold Exposition,\nhere You can learn best practice,\nsay no more to getting sick!',
-        image: require('../Longevity/assets/bg1.jpg'),
-        backgroundColor: '#59b2ab',
-    },
-    {
-        key: 2,
-        title: 'Meditate',
-        text: 'Meditation is very important!\nLearn how to improve Your mindfulness,\nrelief from stress!',
-        image: require('../Longevity/assets/bg2.jpg'),
-        backgroundColor: '#febe29',
-    },
-    {
-        key: 3,
-        title: 'Lifestyle matters',
-        text: 'Find Your way to increase life quality.\nLongevity is created on purpose to help You out!',
-        image: require('../Longevity/assets/bg3.jpg'),
-        backgroundColor: '#22bcb5',
-    }
-];
+import { enableScreens } from 'react-native-screens';
+import LoginScreen from "./screens/LoginScreen";
+import MeditationScreen from "./screens/MeditationScreen";
+enableScreens();
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center'
-    },
-    backgroundImage: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
-    tittle: {
-        paddingTop: 25,
-        paddingBottom: 10,
-        fontWeight: 'bold',
-        color: '#21465b',
-        alignSelf: 'center',
-        fontSize: 30,
-    },
-    text: {
-        textAlign: 'center',
-        color: '#b5b5b5',
-        fontSize: 15,
-        paddingHorizontal: 30,
-    },
-    dotStyle: {
-        backgroundColor: '#21456b',
-        width: 10,
-    },
-    buttonCircle: {
-        width: 40,
-        height: 40,
-        backgroundColor: 'rgba(0, 0, 0, .2)',
-        borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    onboardScreen: {
-        resizeMode:'cover',
-        height:'73%',
-        width: '100%'
-    }
-});
 
 export default class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        App: false
-    }}
-    _renderItem = ({ item }) => {
+        state = {
+        App: false,
+    }
+    // @ts-ignore
+    _renderItem = ( { item } ) => {
         return (
             <View style={{flex:1}}>
                 <Image source={item.image} style={styles.onboardScreen}/>
@@ -97,7 +38,7 @@ export default class App extends React.Component {
     _renderNextButton = () => {
         return (
             <View style={styles.buttonCircle}>
-                <Ionicons
+                <Icon
                     name="md-arrow-round-forward"
                     color="rgba(255, 255, 255, .9)"
                     size={24}
@@ -108,7 +49,7 @@ export default class App extends React.Component {
     _renderDoneButton = () => {
         return (
             <View style={styles.buttonCircle}>
-                <Ionicons
+                <Icon
                     name="md-checkmark"
                     color="rgba(255, 255, 255, .9)"
                     size={24}
@@ -119,17 +60,65 @@ export default class App extends React.Component {
     render() {
         if (this.state.App) {
             return (
-                <View style={styles.container}>
-                    <ImageBackground style= { styles.backgroundImage } source={require('./assets/bg4.jpg')}>
-                        <Header title="Longevity"/>
-                        <Footer title={''}/>
-                        <Meditation title="Guided Meditation"/>
-                        <Ketogenic title="Ketogenic Diet"/>
-                        <BMI title="BMI Calculator"/>
-                        <Cold title="Cold Exposition"/>
-                    </ImageBackground>
-                </View>
-            );
+                <NavigationContainer>
+                    <Tab.Navigator
+                        initialRouteName="Longevity"
+                        screenOptions={({ route }) => ({
+                            tabBarIcon: ({ focused, color, size }) => {
+                                let iconName;
+
+                                if (route.name === 'Longevity') {
+                                    color= 'blue'
+                                    iconName = focused
+                                        ? 'ios-infinite'
+                                        : 'ios-infinite';
+                                }
+                                if (route.name === 'BMI') {
+                                    color= 'green'
+                                    iconName = focused
+                                        ? 'ios-leaf'
+                                        : 'ios-leaf';
+                                }
+                                if (route.name === 'Login') {
+                                    iconName = focused
+                                        ? 'ios-log-in'
+                                        : 'ios-log-in';
+                                }
+                                if (route.name === 'Meditation') {
+                                    color= 'black'
+                                    iconName = focused
+                                        ? 'md-time'
+                                        : 'md-open';
+                                }
+                                // @ts-ignore
+                                return <Icon name={iconName} size={size} color={color} />;
+                                },
+                        })}
+                        tabBarOptions={{
+                            activeTintColor: 'white',
+                            inactiveTintColor: 'black',
+                            allowFontScaling: true,
+                            activeBackgroundColor: 'lightblue',
+                            labelStyle: {
+                                fontSize: 18,
+                                fontWeight: '700',
+                                bottom: 5,
+                                color: 'black',
+                                opacity: 0.7
+                            },
+                            style: {
+                                backgroundColor: 'white',
+                            },
+                        }}
+                    >
+                        <Tab.Screen
+                            name="Longevity" component={HomeScreen}/>
+                        <Tab.Screen name="BMI" component={BmiScreen}/>
+                        <Tab.Screen name="Meditation" component={MeditationScreen}/>
+                        <Tab.Screen name="Login" component={LoginScreen}/>
+                    </Tab.Navigator>
+                </NavigationContainer>
+                    );
         } else {
             return <AppIntroSlider
                 renderItem={this._renderItem}
@@ -140,4 +129,3 @@ export default class App extends React.Component {
         }
     }
 }
-

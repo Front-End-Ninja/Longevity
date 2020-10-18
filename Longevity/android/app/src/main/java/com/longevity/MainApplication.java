@@ -3,6 +3,17 @@ package com.longevity;
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
+import com.oblador.vectoricons.VectorIconsPackage;
+
+@Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+      new MainReactPackage(),
+      new VectorIconsPackage()
+    );
+  }
+
+}
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;

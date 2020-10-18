@@ -1,38 +1,83 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput} from 'react-native';
+import styles from "../styles/BMIStyles";
 
-const BMI = (props: { title: React.ReactNode; }) => {
-    return (
-        <View style={styles.bmi}>
-            <Text style={styles.title}>{ props.title }</Text>
-        </View>
-    )
+export default class BMI extends React.Component {
+    state = {
+        height: '',
+        weight: '',
+        bmi: '',
+        BmiResult: '',
+    }
+    // @ts-ignore
+    handleHeight = (text) => {
+        this.setState({ height: text })
+    }
+    // @ts-ignore
+    handleWeight = (text) => {
+        this.setState({ weight: text })
+    }
+    // @ts-ignore
+    calculate = (height, weight) => {
+        //calculation
+        let result = (parseFloat(weight)*10000)/(parseFloat(height)*parseFloat(height));
+        // @ts-ignore
+
+        result = result.toFixed(2);
+        //display result
+        this.setState({ bmi: result })
+        if(result<18.5){
+            this.setState({BmiResult:'Underweight'})
+        }
+        else if(result>=18.5&&result<25){
+            this.setState({BmiResult:'Normal weight'})
+        }
+        else if(result>=25&&result<30){
+            this.setState({BmiResult:'Overweight'})
+        }
+        else if(result>=30){
+            this.setState({BmiResult:'Obese'})
+        }
+        else{
+            alert('Incorrect Input!');
+            this.setState({BmiResult:''})
+        }
+    }
+    render() {
+        return (
+            <View style = {styles.container}><Text style={styles.title}>BMI Calculator</Text>
+                <Text  style = {styles.label}>Height</Text>
+                <TextInput style = {styles.input}
+                           clearTextOnFocus={true}
+                           underlineColorAndroid = "transparent"
+                           placeholder = "Height (Cm)"
+                           placeholderTextColor="#111"
+                           returnKeyType="next"
+                           keyboardType="number-pad"
+                    // @ts-ignore
+                           onSubmitEditing={() => this.passwordInput.focus()}
+                           autoCapitalize = "none"
+                           onChangeText = {this.handleHeight}/><Text  style = {styles.label}>Weight</Text>
+                <TextInput style = {styles.input}
+                           clearTextOnFocus={true}
+                           underlineColorAndroid = "transparent"
+                           placeholderTextColor="#111"
+                           returnKeyType="go"
+                           keyboardType="number-pad"
+                    // @ts-ignore
+                           ref={(input) => this.passwordInput = input}
+                           placeholder = "Weight (Kg)"
+                           autoCapitalize = "none"
+                           onChangeText = {this.handleWeight}/>
+                <TouchableOpacity
+                    style = {styles.submitButton}
+                    onPress = {
+                        () => this.calculate(this.state.height, this.state.weight)
+                    }>
+                    <Text style = {styles.submitButtonText}> Calculate </Text>
+                </TouchableOpacity><Text style = {styles.output}>{this.state.bmi}</Text>
+                <Text style = {styles.resultText}>{this.state.BmiResult}</Text></View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-    bmi: {
-        backgroundColor: 'rgba(52, 52, 52, 0.6)',
-        height: 70,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: "relative", top: 120, left: 55,
-        width: 300,
-        borderRadius: 20,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 12,
-        },
-        shadowOpacity: 0.58,
-        shadowRadius: 16.00,
-        elevation: 24,
-    },
-    title: {
-        color: '#F3F3F3',
-        fontSize: 28,
-        fontWeight: '900',
-    }
-});
-
-export default BMI;
