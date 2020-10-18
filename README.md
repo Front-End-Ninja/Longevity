@@ -1,33 +1,34 @@
 # *Longevity* Native-React application
 
-Longevity is a rare real word that conveys long life and excellent health.
-Here You can find knowledge and methods to improve and extend quality of life,
-calculate Your BMI, get to know about meditation and start Your journey into, discover new diet
-and search for a recipe's, 
+Longevity is a rare real word that conveys long life and excellent health. <br />
+Here You can find knowledge and methods to improve and extend quality of life, <br />
+calculate Your BMI, get to know about meditation and start Your journey into, discover new diet <br />
+and search for a recipe's,  <br />
 
-Application will start with an onboarding screens to guide You and tell what is what,
-also You will be able to register and login to develop Yourself with my app in the future.
-I plan to add all the features and integrate them till end of 2020 year.
+Application will start with an onboarding screens to guide You and tell what is what, <br />
+also You will be able to register and login to develop Yourself with my app in the future. <br />
+I plan to add all the features and integrate them till end of 2020 year <br />
 
-Native react is giving me a lot of fun, not my main focus but definitelly i will code apps from time to time.
+Native react is giving me a lot of fun, not my main focus but definitelly i will code apps from time to time. <br />
 
 # Tech
 
-Base - React Native
-Support - TypeScript
-Packages - Node.js npm
-ios emulation - xCode
-android emulation - android studio
+Base - React Native <br />
+Support - TypeScript <br />
+Packages - Node.js npm <br />
+ios emulation - xCode <br />
+android emulation - android studio <br />
 
 ## To Start and test Longevity
 
 Simply fork the repo, git clone to local folder.
 
-git init,
-npm i,
-npm -g expo-cli,
-expo start,
-now You can type i to start ios, a for android, have fun
+git init <br />
+npm i <br />
+npm -g expo-cli <br />
+expo start <br />
+now You can type i to start ios <br />
+a for android, have fun :stuck_out_tongue_closed_eyes:
 
 Enjoy!
 
