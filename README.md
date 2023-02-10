@@ -1,4 +1,4 @@
-# *Longevity* Native-React application
+# *Longevity* React-native application
 
 Longevity is a rare real word that conveys long life and excellent health. <br />
 Here You can find knowledge and methods to improve and extend quality of life, <br />
